@@ -1,7 +1,7 @@
 FROM tomcat:8.5-alpine
 MAINTAINER MATSUI Shinsuke <poppen.jp@gmail.com>
 
-ARG GSESSION_VERSION=4.6.3
+ARG GSESSION_VERSION=4.7.2
 ARG ENTRYKIT_VERSION=0.4.0
 
 ADD https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERSION}/entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz $CATALINA_HOME
@@ -25,7 +25,7 @@ RUN tar -xvzf entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \
     && apk del .build-deps
 
 VOLUME ["/home/gsession"]
-EXPOSE 8080
+EXPOSE 18080
 ENTRYPOINT [ \
     "codep", \
         "catalina.sh run", \
